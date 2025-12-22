@@ -1,22 +1,37 @@
-import React from "react";
 import Navebar from "./components/navbar";
 import Cards from "./components/Cards";
+import { useEffect, useState } from "react";
 
 const App = () => {
-  function getData() {
-    fetch(`https://api.unsplash.com/photos/random`),
-      {
-        headers: {
-          Authorization: `Client-ID ${UNSPLASH_KEY}`,
-        },
-      }
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+  const UNSPLASH_KEY = "rRWT80f7R4ia5WBVFeo8DnEHyRa4jo-Fgzy2zz4LE2s";
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    getData();
+  }, []);
+  async function getData() {
+    try {
+      const res = await fetch(
+        "https://api.unsplash.com/photos/random?count=20",
+        {
+          headers: {
+            Authorization: `Client-ID ${UNSPLASH_KEY}`,
+          },
+        }
+      );
+
+      const imgdata = await res.json();
+      setData(imgdata);
+    } catch (error) {
+      console.error(error);
+    }
   }
+
   return (
-    <div>
+    <div
+    >
       <Navebar />
-      <Cards />
+      <Cards imgdata={data} />
+      <div ></div>
     </div>
   );
 };
