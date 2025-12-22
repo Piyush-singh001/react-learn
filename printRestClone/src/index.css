@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.logo {
+  font-size: 22px;
+  color: #e60023;
+  font-weight: bold;
+}
+
+.search-bar {
+  width: 50%;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.icons img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* Image Grid */
+.grid {
+  columns: 4 200px; /* This creates Pinterest-style columns */
+  column-gap: 15px;
+  padding: 20px;
+}
+
+.card {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+#content {
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(transparent, black);
+  color: white;
+  position: absolute;
+  bottom: -40%;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 10px;
+  padding: 10px;
+  transition: bottom 0.5s ease;
+}
+#content button {
+  padding: 6px 10px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#like {
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: right 0.4s ease;
+}
+
+#content button i {
+  margin-right: 5px;
+  font-size: 10px;
+}
+#content button i {
+  margin-right: 5px;
+  font-size: 10px;
+}
+.card:hover img {
+  transform: scale(1.03);
+}
+
+.card:hover #content {
+  bottom: 0;
+}
+
+.card:hover #like {
+  right: 10px;
+}
