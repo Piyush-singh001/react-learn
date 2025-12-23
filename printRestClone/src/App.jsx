@@ -1,6 +1,7 @@
 import Navebar from "./components/navbar";
 import Cards from "./components/Cards";
 import { useEffect, useState, useRef } from "react";
+import Sidebar from "./components/sidebar";
 
 const App = () => {
   const pexels_KEY = "gp6NPgRDuk03sFP33Bz9mPBGFGSeVuZdGEmhQXBqOsbLk89EmZwk9lS8";
@@ -32,14 +33,13 @@ const App = () => {
       });
 
       const imgdata = await res.json();
-      setImages((prev) => [...prev, ...imgdata.photos]);
+      setImages((prev) => [...prev, ...imgdata.photos]); 
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
     }
   }
-
   useEffect(() => {
     getData();
   }, [page]);
@@ -65,12 +65,14 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Navebar onSearch={handleSearch} />
-      <Cards imgdata={images} />
-      <div ref={sentinelRef} style={{ height: "20px" }} />
-
-      {loading && <p style={{ textAlign: "center" }}>Loading...</p>}
+    <div className="App">
+      <Sidebar />
+      <div className="main">
+        <Navebar onSearch={handleSearch} />
+        <Cards imgdata={images} />
+        <div ref={sentinelRef} style={{ height: "20px" }} />
+        {loading && <p style={{ textAlign: "center" }}>Loading...</p>}
+      </div>
     </div>
   );
 };

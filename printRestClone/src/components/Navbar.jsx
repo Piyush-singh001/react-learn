@@ -7,7 +7,6 @@ const Navebar = ({ onSearch }) => {
 
   return (
     <nav className="navbar">
-      <h1 className="logo">Pinterest</h1>
       <input
         type="text"
         placeholder="Search for ideas..."
