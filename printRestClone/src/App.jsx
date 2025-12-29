@@ -6,7 +6,7 @@ import Sidebar from "./components/sidebar";
 const App = () => {
   const pexels_KEY = "gp6NPgRDuk03sFP33Bz9mPBGFGSeVuZdGEmhQXBqOsbLk89EmZwk9lS8";
   const [images, setImages] = useState([]);
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const sentinelRef = useRef(null);
 
@@ -14,7 +14,6 @@ const App = () => {
 
   const handleSearch = (value) => {
     setQuery(value);
-    console.log("Search query:", value);
   };
 
   async function getData() {
@@ -33,7 +32,7 @@ const App = () => {
       });
 
       const imgdata = await res.json();
-      setImages((prev) => [...prev, ...imgdata.photos]); 
+      setImages((prev) => [...prev, ...imgdata.photos]);
     } catch (error) {
       console.error(error);
     } finally {

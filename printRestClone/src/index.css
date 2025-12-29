@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  border-right: 1px solid #4a4a4ad1;
   padding: 20px;
   position: fixed;
   top: 0;
@@ -25,7 +25,6 @@
 
 .main {
   margin-left: 80px;
-  width: calc(100% - 100px);
 }
 .logo {
   width: 20px;
@@ -111,7 +110,7 @@
 
 /* Image Grid */
 .grid {
-  columns: 5 200px; /* This creates Pinterest-style columns */
+  columns: 5; /* This creates Pinterest-style columns */
   column-gap: 15px;
   padding: 20px;
   margin-top: 70px; /* To avoid overlap with navbar */
@@ -185,4 +184,36 @@
 
 .card:hover #like {
   right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .grid {
+    columns: 5;
+  }
+}
+
+@media (max-width: 992px) {
+  .grid {
+    columns: 3;
+  }
+  #content {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .grid {
+    columns: 2;
+  }
+  #content {
+    display: none;
+  }
+
+  .sidebar {
+    width: 70px;
+  }
+  .main {
+    margin-left: 70px;
+  }
 }
