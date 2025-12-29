@@ -1,7 +1,7 @@
-import Navebar from "./components/navbar";
+import Navebar from "./components/Navbar";
 import Cards from "./components/Cards";
 import { useEffect, useState, useRef } from "react";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   const pexels_KEY = "gp6NPgRDuk03sFP33Bz9mPBGFGSeVuZdGEmhQXBqOsbLk89EmZwk9lS8";
